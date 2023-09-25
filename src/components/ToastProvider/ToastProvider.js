@@ -1,11 +1,11 @@
 import React from "react";
 
-import { useEscapeKey } from "../../hooks/HandleKeyDown";
+import { useKeyDown } from "../../hooks/HandleKeyDown";
 
 export const ToastContext = React.createContext();
 
 function ToastProvider({ children }) {
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState([{}]);
 
   // register infomation about toast and put it in 'data' array.
   const addNewData = (message, variant) => {
@@ -35,7 +35,7 @@ function ToastProvider({ children }) {
 
   const clearToaster = () => {
     if (0 < data.length) {
-      setData([]);
+      setData([{}]);
     }
   };
 
