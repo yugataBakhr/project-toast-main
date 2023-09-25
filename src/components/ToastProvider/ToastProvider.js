@@ -5,6 +5,9 @@ import { useKeyDown } from "../../hooks/HandleKeyDown";
 export const ToastContext = React.createContext();
 
 function ToastProvider({ children }) {
+  // I set an empty object because aria-live doesn't respond at the first time Toast component comes up.
+  // I'm not sure this is the right way to deal with the problem but it works fine.
+  // It seems like <ol> in ToastShelf isn't there for us when 'data' array is empty.
   const [data, setData] = React.useState([{}]);
 
   // register infomation about toast and put it in 'data' array.
