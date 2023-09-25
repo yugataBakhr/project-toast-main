@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useKeyDown } from "../../hooks/HandleKeyDown";
+import { useEscapeKey } from "../../hooks/HandleKeyDown";
 
 export const ToastContext = React.createContext();
 
@@ -37,7 +37,7 @@ function ToastProvider({ children }) {
   // remove all toasters by hitting ESC key.
 
   const clearToaster = () => {
-    if (0 < data.length) {
+    if (1 < data.length) {
       setData([{}]);
     }
   };
